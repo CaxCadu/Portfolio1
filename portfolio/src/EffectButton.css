@@ -1,0 +1,85 @@
+:root {
+  --primary: 250 66% 61%;
+}
+
+.neon-btn {
+  all: unset;
+  font-size: 60px;
+  padding: 14px 52px;
+  background: #000;
+  color: aliceblue;
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  animation: rotate 4s linear infinite;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* tamanhos */
+.neon-btn.sm {
+  font-size: 24px;
+}
+.neon-btn.md {
+  font-size: 40px;
+}
+.neon-btn.lg {
+  font-size: 70px;
+}
+
+.neon-btn:hover > span {
+  color: rgb(107, 89, 124);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.neon-btn::before,
+.neon-btn::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle) at 50% 50%,
+    transparent 0%,
+    transparent 33%,
+    hsl(var(--primary)) 50%,
+    transparent 66%
+  );
+  z-index: -2;
+}
+
+.neon-btn::before {
+  filter: blur(15px);
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    100px circle at var(--mouseX) var(--mouseY),
+    hsl(var(--primary) / 0.4),
+    transparent 40%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.neon-btn:hover .inner {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  100% {
+    --angle: 360deg;
+  }
+}

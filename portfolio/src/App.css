@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
 
-
+html{
+  scroll-behavior: smooth;
+}
 body{
   background-color: #121212;
   color: white;
@@ -9,22 +11,89 @@ body{
   margin: 0;
   padding: 2em;
 }
+.carousel{
+  display: flex;
+  margin: 100px auto;
+  width: 90%;
+  border: none;
+  overflow-x: auto;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+
+}
+.group {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  animation: spin 5s infinite linear;
+  padding-right: 1em;
+}
+
+.card{
+  height: 5em;
+  padding: 1em;
+  font-size: 3rem;
+  border-radius: .2em;
+  text-align: center;
+  align-content: center;
+  flex: 0 0 5em;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+@keyframes spin {
+  from {translate: 0;}
+  to {translate: -100%;}
+}
 h1{
   font-family: 'Science Gothic', sans-serif;
   font-weight: 700;
   font-size: 3.5em;
+  margin: 0;
+  padding: 0;
 }
-p {
+.title{
+  display: block;
+  font-family: 'Science Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 1.3em;
+  color: #4400ff;
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
+}
+.description{
+  display: block;
   font-family: monospace;
-  border-right: 4px solid;
-  width: 10ch;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 2s steps(10), blink .75s step-end infinite;
+  max-width: 33vw;
+  text-align: left;
+  margin: 0 0 1.5em 0;
+  background: rgba(44, 44, 66, 0.7);
+  border-radius: 12px;
+  padding: 1.2em 1em;
+  font-size: 1em;
+  color: #e0e0e0;
+  box-shadow: 0 2px 12px 0 rgba(68,0,255,0.13);
+  word-break: break-word;
+  border: 2px solid #4400ff;
+  transition: box-shadow 0.4s, transform 0.4s;
 }
+
+.description:hover {
+  box-shadow: 0 8px 32px 0 rgba(68,0,255,0.22);
+  transform: scale(1.03);
+}
+
 @keyframes typing {
-  from { width: 0 }
-  to { width: 10ch }
+   from {
+    width: 0
+   }
+   to {
+    width: 100%;
+   }
 }
 @keyframes blink {
   50% { border-color: transparent }
@@ -32,6 +101,7 @@ p {
 
 h1:hover{
   color: #4400ff;
+  cursor: pointer;
 }
 button {
   --glow-color: aliceblue;
@@ -84,7 +154,7 @@ button:active {
 }
 
 
-img {
+.imgrds {
   width: 40px;
   margin: 0 15px;
   border-radius: 50%;
@@ -99,4 +169,15 @@ img:hover {
   display: flex;
   justify-content: center;
   margin-top: 32px;
+}
+
+.Cadu {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #4400ff;
+  box-shadow: 0 0 1em 0.25em rgba(68, 0, 255, 0.781);
+  text-align: right;
 }

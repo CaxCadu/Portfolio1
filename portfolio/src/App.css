@@ -1,79 +1,102 @@
-*,
-*::before,
-*::after {
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+
+
+body{
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 2em;
 }
-
-:root {
-  --primary: 250 66% 61%;
+h1{
+  font-family: 'Science Gothic', sans-serif;
+  font-weight: 700;
+  font-size: 3.5em;
 }
-
-.btn {
-  all: unset;
-  font-size: 60px;
-  padding: 14px 52px;
-  background: #000;
-  color: aliceblue;
-  text-transform: uppercase;
-  position: relative;
-  border-radius: 100px;
-  cursor: pointer;
+p {
+  font-family: monospace;
+  border-right: 4px solid;
+  width: 10ch;
+  white-space: nowrap;
   overflow: hidden;
-  animation: rotate 4s linear infinite;
+  animation: typing 2s steps(10), blink .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 10ch }
+}
+@keyframes blink {
+  50% { border-color: transparent }
 }
 
-.btn:hover > span {
-  color: rgb(107, 89, 124);
+h1:hover{
+  color: #4400ff;
+}
+button {
+  --glow-color: aliceblue;
+  --glow-spread-color: rgba(68, 0, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: #000000;
+  cursor: pointer;
+  border: 0.25em solid var(--glow-color);
+  padding: 0.8em 2.5em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+              0 0 4em 1em var(--glow-spread-color),
+              inset 0 0 0.75em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+  position: relative;
+  transition:all 0.3s
 }
 
-@property --angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-.btn::before,
-.btn::after {
+button::after {
+  pointer-events: none;
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from var(--angle) at 50% 50%,
-    transparent 0%,
-    transparent 33%,
-    hsl(var(--primary)) 50%,
-    transparent 66%
-  );
-  z-index: -2;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
 }
 
-.btn::before {
-  filter: blur(15px);
+button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+              0 0 4em 1em var(--glow-spread-color),
+              inset 0 0 0.75em 0.25em var(--glow-color);
 }
 
-.inner {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    100px circle at var(--mouseX) var(--mouseY),
-    hsl(var(--primary) / 0.4),
-    transparent 40%
-  );
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.2s;
+button:active {
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+              0 0 2.5em 2em var(--glow-spread-color),
+              inset 0 0 0.5em 0.25em var(--glow-color);
 }
 
-.btn:hover .inner {
-  opacity: 1;
+
+img {
+  width: 40px;
+  margin: 0 15px;
+  border-radius: 50%;
+  transition: transform 0.2s;
 }
 
-@keyframes rotate {
-  100% {
-    --angle: 360deg;
-  }
+img:hover {
+  transform: scale(1.18);
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
 }

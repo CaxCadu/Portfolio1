@@ -1,21 +1,22 @@
-import { useState } from 'react'
+import React from 'react'
 import linkedin from './assets/linkedin.png'
 import github from './assets/github.png'
-import EffectButton from './components/EffectButton'
+import email from './assets/email.webp'
+import insta from './assets/insta.png'
 import './App.css'
 
 function App() {
 
   return (
     <div>
-      <EffectButton size="md">Hello</EffectButton>
+
 
       <h1>Cadu Portfolio</h1>
-      <p>Desenvolvedor Full Stack</p>
+      
+      <p className='title'>Cadu programador</p>
+      <p className='description'></p>
 
-      <EffectButton size="md" onClick={() => console.log("Projetos!")}>
-        Projetos
-      </EffectButton>
+
 
       <a href="https://www.linkedin.com/in/carlos-andrade-b609222bb">
         <img src={linkedin} alt="LinkedIn" />
@@ -24,6 +25,18 @@ function App() {
       <a href="https://github.com/CaxCadu">
         <img src={github} alt="GitHub" />
       </a>
+
+      <a href="mailto:carlos.s.andrade2602@gmail.com">
+        <img src={email} alt="Email" />
+      </a>
+      <a href="https://www.instagram.com/caadu.dev">
+        <img src={insta} alt="Instagram" />
+      </a>
+      <div className="center-btn">
+        <button>
+          Projetos
+        </button>
+      </div>
     </div>
   )
 }

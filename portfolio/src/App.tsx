@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="container">
-      {/* Seção Hero */}
+
       <section className="hero-section">
         <div className="left-content">
           <h1>Carlos Andrade</h1>
@@ -81,7 +81,7 @@ function App() {
         <img className='Cadu' src={foto} alt="Foto de Carlos Andrade" />
       </section>
 
-      {/* Botões Centralizados */}
+
       <div className="center-btn">
         <button onClick={handleContactClick}>
           Entre em Contato
@@ -94,10 +94,9 @@ function App() {
         </button>
       </div>
 
-      {/* Seção Sobre */}
       <section 
         ref={sobreRef}
-        id="sobre"
+        id='sobre'
         className={`sobre ${isVisible ? 'visible' : ''}`}
       >
         <p className='p1'>Sobre mim</p>
@@ -108,7 +107,7 @@ function App() {
         </div>
       </section>
 
-      {/* Carrossel de Tecnologias */}
+
       <section id="carrossel" className="carousel-container">
         <div className="carousel">
           <div className="group">
@@ -127,8 +126,15 @@ function App() {
           </div>
         </div>
       </section>
-    </div>
-  )
-}
+
+      <section
+        id='Projetos'
+        >
+      <div className='projeto'>
+        <h2>Projetos</h2>
+      </div>
+      </section>
+    </div>   
+)};
 
 export default App

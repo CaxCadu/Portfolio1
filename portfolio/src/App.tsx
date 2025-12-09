@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import linkedin from './assets/linkedin.png'
 import github1 from './assets/github.png'
 import email from './assets/email.webp'
@@ -9,7 +9,9 @@ import reactImg from './assets/react.png'
 import gitImg from './assets/git.png'
 import ts from './assets/ts.webp'
 import html from './assets/html.png'
+import { ProjectCarousel } from './components/projects'
 import './App.css'
+
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
@@ -39,11 +41,11 @@ function App() {
   }, [])
 
   const handleContactClick = () => {
-    document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleProjectsClick = () => {
-    document.getElementById('carrossel').scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('Projetos')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleDownloadCV = () => {
@@ -127,13 +129,12 @@ function App() {
         </div>
       </section>
 
-      <section
-        id='Projetos'
-        >
-      <div className='projeto'>
+      <section id='Projetos'>
         <h2>Projetos</h2>
-      </div>
+        <ProjectCarousel />
       </section>
+
+      <section className=''></section>
     </div>   
 )};
 

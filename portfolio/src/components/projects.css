@@ -1,0 +1,163 @@
+/* Seção de Projetos */
+.projects-section {
+  margin: 80px 0;
+  text-align: center;
+}
+
+.projects-section h2 {
+  font-family: 'Science Gothic', sans-serif;
+  font-size: 2.5em;
+  color: #4400ff;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+/* Cartão do Projeto */
+.project-card {
+  background: linear-gradient(135deg, rgba(68, 0, 255, 0.1) 0%, rgba(68, 0, 255, 0.05) 100%);
+  border: 2px solid #4400ff;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(68, 0, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 50px rgba(68, 0, 255, 0.4);
+  transform: translateY(-10px);
+}
+
+/* Wrapper do Carrossel */
+.carousel-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Container de Imagens */
+.carousel-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  border-radius: 15px;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+/* Botões de Navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(68, 0, 255, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 80%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-btn:hover {
+  background: rgba(68, 0, 255, 0.9);
+  box-shadow: 0 0 20px rgba(68, 0, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 15px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+/* Indicadores removidos (estilos mantidos em histórico caso queira restaurar) */
+
+/* Informações do Projeto */
+.project-info {
+  text-align: center;
+}
+
+.project-info h3 {
+  font-size: 1.8em;
+  color: #4400ff;
+  margin: 20px 0 15px 0;
+  font-family: 'Science Gothic', sans-serif;
+  font-weight: 700;
+}
+
+.project-info p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Animação de entrada */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carousel-image-container {
+    height: 300px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .project-card {
+    padding: 20px;
+    margin: 0 15px;
+  }
+
+  .projects-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .project-info h3 {
+    font-size: 1.5em;
+  }
+
+  .project-info p {
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}

@@ -139,7 +139,7 @@ button:hover {
   margin-bottom: 0.9em;
   color: #4400ff;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Science Gothic', sans-serif;
 }
 
 .borda {
@@ -258,6 +258,7 @@ h1 {
 
   .p1 {
     font-size: 2em;
+    font-family: ;
   }
 }
 /* Seção de Redes Sociais */
@@ -307,4 +308,8 @@ h1 {
   transform: translateY(-6px);
   background: rgba(68, 0, 255, 0.25);
   box-shadow: 0 0 20px #4400ff;
+}
+h2 {
+  text-align: center;
+  font-family: 'Science Gothic', sans-serif;
 }

@@ -11,6 +11,7 @@ import ts from './assets/ts.webp'
 import html from './assets/html.png'
 import { ProjectCarousel } from './components/projects'
 import './App.css'
+import { ContactForm } from './components/contact'
 
 
 function App() {
@@ -134,7 +135,10 @@ function App() {
         <ProjectCarousel />
       </section>
 
-      <section className=''></section>
+      <section id='contato'>
+        <h2>Contato</h2>
+        <ContactForm />
+      </section>
     </div>   
 )};
 

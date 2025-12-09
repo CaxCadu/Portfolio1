@@ -3,6 +3,10 @@ import morango from '../assets/morango.png'
 import laranja from '../assets/laranja.png'
 import abacate from '../assets/abacate.png'
 import './projects.css'
+
+
+
+
 interface Project {
   id: number
   name: string
@@ -14,7 +18,7 @@ const projects: Project[] = [
   {
     id: 1,
     name: 'Morango Drink',
-    description: 'Uma bebida refrescante com sabor original de morango. Desenvolvida com ingredientes de qualidade para proporcionar uma experiência deliciosa e revitalizante.',
+    description: `Projeto Refri, um carosel de imagens com animação. Feito com React, Javascript, Html e CSS.\n\n<a href="https://siteinterativorefricadu.netlify.app/" target="_blank" rel="noopener noreferrer">Link do projeto</a>`,
     images: [morango, laranja, abacate]
   }
 ]
@@ -77,12 +81,19 @@ export function ProjectCarousel() {
           ❯
         </button>
 
-        {/* Indicadores removidos conforme solicitado */}
       </div>
 
       <div className="project-info">
         <h3>{project.name}</h3>
-        <p>{project.description}</p>
+        <div className="project-description">
+          {project.description.split('\n').map((line, index) => (
+            line.includes('<a') ? (
+              <div key={index} dangerouslySetInnerHTML={{ __html: line }} />
+            ) : (
+              <p key={index}>{line}</p>
+            )
+          ))}
+        </div>
       </div>
     </div>
   )

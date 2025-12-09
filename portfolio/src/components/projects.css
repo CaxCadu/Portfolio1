@@ -110,12 +110,29 @@
   font-weight: 700;
 }
 
-.project-info p {
+.project-description {
   font-size: 1.1em;
   line-height: 1.6;
   color: #e0e0e0;
-  margin: 0;
   text-align: justify;
+}
+
+.project-description p {
+  margin: 0 0 15px 0;
+}
+
+.project-description a {
+  color: #4400ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.project-description a:hover {
+  color: #6600ff;
+  border-bottom-color: #4400ff;
+  box-shadow: 0 0 10px rgba(68, 0, 255, 0.3);
 }
 
 /* Animação de entrada */

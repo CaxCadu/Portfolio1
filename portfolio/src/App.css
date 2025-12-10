@@ -86,10 +86,10 @@ button {
   text-shadow: 0 0 0.5em var(--glow-color);
   transition: all 0.3s;
   min-width: 180px;
-  position: relative; /* NECESSÁRIO PARA O EFEITO DE LUZ */
+  position: relative;
 }
 
-/* 🔥 EFEITO DE ILUMINAÇÃO EMBAIXO DO BOTÃO */
+
 button::after {
   pointer-events: none;
   content: "";

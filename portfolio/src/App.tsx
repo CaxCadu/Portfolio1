@@ -12,6 +12,7 @@ import html from './assets/html.png'
 import { ProjectCarousel } from './components/projects'
 import './App.css'
 import { ContactForm } from './components/contact'
+import StarBorder from '../src/components/border'
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
   }, [])
 
   const handleContactClick = () => {
-    document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleProjectsClick = () => {
@@ -81,6 +82,7 @@ function App() {
           </div>
         </div>
         
+
         <img className='Cadu' src={foto} alt="Foto de Carlos Andrade" />
       </section>
 

@@ -1,24 +1,66 @@
-import { useForm, ValidationError } from "@formspree/react";
-import { FORMSPREE_FORM_ID } from '../libs/clientFormspree'
+import { useState } from 'react'
+import FORMSPREE_URL from '../libs/clientFormspree'
+import './contact.css'
+
 
 export function ContactForm() {
-  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errors, setErrors] = useState<string[] | null>(null)
 
-  if (state.succeeded) {
-    return <p>Obrigado — mensagem enviada!</p>;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setStatus('submitting')
+    setErrors(null)
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      })
+
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        const json = await res.json().catch(() => ({}))
+        const msgs = (json && (json.errors || []).map((it: any) => it.message)) || ['Erro ao enviar o formulário']
+        setErrors(msgs)
+        setStatus('error')
+      }
+    } catch (err: any) {
+      setErrors([String(err.message || err)])
+      setStatus('error')
+    }
   }
+
+  if (status === 'success') return <p>Obrigado — mensagem enviada!</p>
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" name="email" required />
-      <ValidationError prefix="Email" field="email" errors={state.errors} />
 
-      <label htmlFor="message">Mensagem</label>
-      <textarea id="message" name="message" required />
-      <ValidationError prefix="Message" field="message" errors={state.errors} />
+      <label htmlFor="name"></label>
+      <input id="name" type="text" name="name" placeholder="Seu nome" required />
 
-      <button type="submit" disabled={state.submitting}>Enviar</button>
+      <label htmlFor="email"></label>
+      <input id="email" type="email" name="email" placeholder="Seu email" required />
+
+      <label htmlFor="message"></label>
+      <textarea id="message" name="message" placeholder="Sua mensagem" required />
+      {errors && (
+        <div className="form-errors">
+          {errors.map((err, i) => (
+            <p key={i} style={{ color: 'salmon' }}>{err}</p>
+          ))}
+        </div>
+      )}
+
+      <button type="submit" disabled={status === 'submitting'}>
+        {status === 'submitting' ? 'Enviando…' : 'Enviar'}
+      </button>
     </form>
-  );
+  )
 }

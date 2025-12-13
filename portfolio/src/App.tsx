@@ -12,7 +12,8 @@ import html from './assets/html.png'
 import { ProjectCarousel } from './components/projects'
 import './App.css'
 import { ContactForm } from './components/contact'
-import StarBorder from '../src/components/border'
+import { CV_LINK } from './libs/links'
+
 
 
 function App() {
@@ -50,13 +51,6 @@ function App() {
     document.getElementById('Projetos')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleDownloadCV = () => {
-    // Adicione aqui o link para download do seu CV
-    const link = document.createElement('a')
-    link.href = '/path-to-your-cv.pdf' // Altere para o caminho do seu CV
-    link.download = 'Carlos_Andrade_CV.pdf'
-    link.click()
-  }
 
   return (
     <div className="container">
@@ -67,7 +61,7 @@ function App() {
           <p className="title">Desenvolvedor Full Stack</p>
           
           <div className="social-links">
-            <a href="https://www.linkedin.com/in/carlos-andrade-b609222bb" target="_blank" rel="noopener noreferrer">
+            <a href="www.linkedin.com/in/carlosandrade01" target="_blank" rel="noopener noreferrer">
               <img className='imgrds' src={linkedin} alt="LinkedIn" />
             </a>
             <a href="https://github.com/CaxCadu" target="_blank" rel="noopener noreferrer">
@@ -94,8 +88,8 @@ function App() {
         <button onClick={handleProjectsClick}>
           Projetos
         </button>
-        <button onClick={handleDownloadCV}>
-          Baixar CV
+        <button onClick={() => window.open(CV_LINK, '_blank', 'noopener,noreferrer')}>
+          Currículo
         </button>
       </div>
 

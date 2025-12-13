@@ -61,7 +61,7 @@ function App() {
           <p className="title">Desenvolvedor Full Stack</p>
           
           <div className="social-links">
-            <a href="www.linkedin.com/in/carlosandrade01" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/carlosandrade01" target="_blank" rel="noopener noreferrer">
               <img className='imgrds' src={linkedin} alt="LinkedIn" />
             </a>
             <a href="https://github.com/CaxCadu" target="_blank" rel="noopener noreferrer">
@@ -134,6 +134,12 @@ function App() {
       <section id='contato'>
         <h2>Contato</h2>
         <ContactForm />
+      </section>
+
+      <section>
+        <footer>
+          
+        </footer>
       </section>
     </div>   
 )};

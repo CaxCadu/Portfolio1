@@ -178,3 +178,22 @@
     font-family: 'Courier New', Courier, monospace;
   }
 }
+
+/* Grid para vários projetos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects-grid .project-card {
+  margin: 0;
+  max-width: 100%;
+}

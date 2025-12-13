@@ -40,6 +40,7 @@ export function ContactForm() {
   if (status === 'success') return <p>Obrigado — mensagem enviada!</p>
 
   return (
+    <div className="contact-section">
     <form onSubmit={handleSubmit} className="contact-form">
 
       <label htmlFor="name"></label>
@@ -62,5 +63,6 @@ export function ContactForm() {
         {status === 'submitting' ? 'Enviando…' : 'Enviar'}
       </button>
     </form>
+    </div>
   )
 }

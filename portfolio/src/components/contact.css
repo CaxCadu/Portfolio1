@@ -11,6 +11,27 @@
   margin-bottom: 6px;
   color: #e0e0e0;
 }
+p {
+  justify-content: center;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  font-weight: 500;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 480px;      
+  padding: 32px;       
+  margin: 40px auto;    
+  
+  color: #ff4444;
+  background-color: #000000;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 25px rgba(206, 196, 196, 0.2);
+}
+
 
 .contact-form input,
 .contact-form textarea {

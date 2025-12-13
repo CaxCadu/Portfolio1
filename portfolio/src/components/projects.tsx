@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import morango from '../assets/morango.png'
 import laranja from '../assets/laranja.png'
 import abacate from '../assets/abacate.png'
+import dom1 from '../assets/dom1.png'
+import dom2 from '../assets/dom2.png'
+import dom3 from '../assets/dom3.png'
 import './projects.css'
 
 
@@ -19,14 +22,20 @@ const projects: Project[] = [
     id: 1,
     name: 'Morango Drink',
     description: `Projeto Refri, um carosel de imagens com animação. Feito com React, Javascript, Html e CSS.\n\n<a href="https://siteinterativorefricadu.netlify.app/" target="_blank" rel="noopener noreferrer">Link do projeto</a>`,
-    images: [morango, laranja, abacate]
+    images: [morango, laranja, abacate],
+
+  },
+  {
+    id: 2,
+    name: 'Dom Irrigação',
+    description: `Projeto Dom Irrigação, um site institucional para uma empresa de irrigação automatizada. Feito com React, Javascript, Html e CSS.\n\n<a href="https://domirrigacao.netlify.app/" target="_blank" rel="noopener noreferrer">Link do projeto</a>`,
+    images: [dom1, dom2, dom3]
   }
 ]
 
-export function ProjectCarousel() {
+function ProjectCard({ project }: { project: Project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const project = projects[0]
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % project.images.length)
@@ -37,19 +46,15 @@ export function ProjectCarousel() {
   }
 
   useEffect(() => {
-    // Auto slide a cada 5 segundos
     autoSlideRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % project.images.length)
     }, 5000)
 
     return () => {
-      if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current)
-      }
+      if (autoSlideRef.current) clearInterval(autoSlideRef.current)
     }
   }, [project.images.length])
 
-  // Reset timer quando clica nos botões
   const handleNavigation = (callback: () => void) => {
     callback()
     if (autoSlideRef.current) {
@@ -95,6 +100,17 @@ export function ProjectCarousel() {
           ))}
         </div>
       </div>
+    </div>
+  )
+}
+
+export function ProjectCarousel() {
+
+  return (
+    <div className="projects-grid">
+      {projects.map((p) => (
+        <ProjectCard key={p.id} project={p} />
+      ))}
     </div>
   )
 }

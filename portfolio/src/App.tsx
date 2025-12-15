@@ -67,11 +67,8 @@ function App() {
             <a href="https://github.com/CaxCadu" target="_blank" rel="noopener noreferrer">
               <img className='imgrds' src={github1} alt="GitHub" />
             </a>
-            <a href="mailto:carlos.s.andrade2602@gmail.com">
+            <a onClick={handleContactClick}>
               <img className='imgrds' src={email} alt="Email" />
-            </a>
-            <a href="https://www.instagram.com/caadu.dev" target="_blank" rel="noopener noreferrer">
-              <img className='imgrds' src={insta} alt="Instagram" />
             </a>
           </div>
         </div>
